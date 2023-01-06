@@ -8,7 +8,7 @@ public class HealthPotion : Item
     {
         if (_entity != null) {
             Debug.Log("TriggerEffect Health Potion");
-            GetComponent<EntityHealth>().Heal(1);
+            _entity.GetComponent<EntityHealth>().Heal(1);
             Destroy(gameObject);
         }
     }

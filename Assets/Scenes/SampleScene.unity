@@ -955,8 +955,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7499bffe1014f1543b146684ba24ef84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {fileID: 0}
-  _goldText: {fileID: 0}
+  _target: {fileID: 1349007864}
+  _goldText: {fileID: 1667000045}
 --- !u!1 &582382028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1237,9 +1237,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c05c0356b7ba26448579eaf49a2408b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _target: {fileID: 1349007864}
   _slider: {fileID: 1044316936}
-  _text: {fileID: 0}
-  _playerHealth: {fileID: 1349007869}
+  _text: {fileID: 1680877072}
 --- !u!1 &728913436
 GameObject:
   m_ObjectHideFlags: 0

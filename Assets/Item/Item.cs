@@ -29,7 +29,7 @@ public class Item : MonoBehaviour
         Debug.Log("OnTriggerEnter Collider Name = " + other.gameObject.name);
         if (other.gameObject.tag == "Player")
         {
-            _entity = other.gameObject;
+            _entity = other.transform.parent.gameObject;
             OnPickUp?.Invoke();
         }
     }

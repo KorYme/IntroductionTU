@@ -11,6 +11,12 @@ public class EntityHealth : MonoBehaviour
     [SerializeField]
     private int _maxHealth;
 
+    public int MaxHealth
+    {
+        get => _maxHealth;
+        private set => _maxHealth = value;
+    }
+
     private int _currentHealth;
 
     public int CurrentHealth 
@@ -55,5 +61,6 @@ public class EntityHealth : MonoBehaviour
     public void IncreaseMaxHealth(int amount)
     {
         _maxHealth += amount;
+        _currentHealth += amount;
     }
 }

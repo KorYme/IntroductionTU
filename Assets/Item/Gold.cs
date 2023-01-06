@@ -11,7 +11,7 @@ public class Gold : Item
         if (_entity != null) {
             value = Random.Range(1, 10);
             Debug.Log("TriggerEffect Gold");
-            GetComponent<EntityGold>().IncreaseGold(value);
+            _entity.GetComponent<EntityGold>().IncreaseGold(value);
             Destroy(gameObject);
         }
     }
