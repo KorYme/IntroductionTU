@@ -51,4 +51,9 @@ public class EntityHealth : MonoBehaviour
         CurrentHealth += Math.Clamp(healAmount, 0, _maxHealth - CurrentHealth);
         _onHeal?.Invoke();
     }
+
+    public void IncreaseMaxHealth(int amount)
+    {
+        _maxHealth += amount;
+    }
 }
