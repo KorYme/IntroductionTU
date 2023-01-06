@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class AnimatorBinding : MonoBehaviour
 {
     private Animator _animator;
+
+    public UnityEvent _onApplyDamage;
+    public UnityEvent _onStopDamage;
 
     private void Awake()
     {
@@ -24,5 +28,15 @@ public class AnimatorBinding : MonoBehaviour
     public void Walking(bool walking)
     {
         _animator.SetBool("Walking", walking);
+    }
+
+    public void ApplyDamage()
+    {
+        _onApplyDamage?.Invoke();
+    }
+
+    public void ApplyStopDamage()
+    {
+        _onStopDamage?.Invoke();
     }
 }
