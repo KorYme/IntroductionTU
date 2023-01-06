@@ -300,6 +300,37 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &93601869
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 93601870}
+  m_Layer: 0
+  m_Name: HitboxSwordPoint2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &93601870
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93601869}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.796, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1462014978}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &127736904
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,6 +749,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 20
+  OnDamageTaken:
+    m_PersistentCalls:
+      m_Calls: []
+  OnHeal:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &395592695
 Transform:
   m_ObjectHideFlags: 0
@@ -915,6 +955,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7499bffe1014f1543b146684ba24ef84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &582382028
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 582382029}
+  m_Layer: 0
+  m_Name: HitboxSwordPoint1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &582382029
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582382028}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.536, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1462014978}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &599547463
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1771,6 +1842,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 100
+  OnDamageTaken:
+    m_PersistentCalls:
+      m_Calls: []
+  OnHeal:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1349007870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1795,6 +1875,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcca2186ac283d449a0bab40d85dce73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hitLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  _damageAmount: 10
+  _pointsHitBox:
+  - _center: {fileID: 1620547151}
+    _radius: 0.15
+  - _center: {fileID: 582382029}
+    _radius: 0.15
+  - _center: {fileID: 93601870}
+    _radius: 0.15
+  - _center: {fileID: 1833945936}
+    _radius: 0.15
+--- !u!4 &1462014978 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8007022423781019756, guid: 2dfbb63c9cdf7504faf4ff26b0581598,
+    type: 3}
+  m_PrefabInstance: {fileID: 1794143064}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1576631183
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1978,6 +2077,37 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1794143064}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1620547150
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1620547151}
+  m_Layer: 0
+  m_Name: HitboxSwordPoint0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1620547151
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620547150}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.273, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1462014978}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1667000043
 GameObject:
   m_ObjectHideFlags: 0
@@ -2473,6 +2603,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 146f949b2997a444ebf55082568c8448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1833945935
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1833945936}
+  m_Layer: 0
+  m_Name: HitboxSwordPoint3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1833945936
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833945935}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 1.057, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1462014978}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1850274031
 GameObject:
   m_ObjectHideFlags: 0

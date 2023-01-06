@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class AnimatorBinding : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Animator _animator;
+
+    private void Awake()
     {
-        
+        _animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void GetHit()
     {
-        
+        _animator.SetTrigger("GetHit");
+    }
+
+    public void Attack()
+    {
+        _animator.SetTrigger("Attack");
+    }
+
+    public void Walking(bool walking)
+    {
+        _animator.SetBool("Walking", walking);
     }
 }
