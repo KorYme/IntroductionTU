@@ -12,6 +12,7 @@ using UnityEngine.SceneManagement;
 public class PlayerMove : MonoBehaviour
 {
     [SerializeField] InputActionReference _move;
+    [SerializeField] InputActionReference _attack;
     [SerializeField] float _speed;
 
     // Event pour les dev
@@ -23,6 +24,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] UnityEvent _onEventPost;
     [SerializeField] UnityEvent _onStartMove;
     [SerializeField] UnityEvent _onStopMove;
+    [SerializeField] UnityEvent _onAttack;
 
     public Vector2 JoystickDirection { get; private set; }
 
@@ -33,6 +35,8 @@ public class PlayerMove : MonoBehaviour
         _move.action.started += StartMove;
         _move.action.performed += UpdateMove;
         _move.action.canceled += StopMove;
+
+        _attack.action.started += Attack;
 
         // Code d'exemple
         Action a; // void Function()
@@ -47,6 +51,7 @@ public class PlayerMove : MonoBehaviour
         _move.action.started -= StartMove;
         _move.action.performed -= UpdateMove;
         _move.action.canceled -= StopMove;
+        _attack.action.started -= Attack;
     }
 
     /// <summary>
@@ -82,6 +87,7 @@ public class PlayerMove : MonoBehaviour
 
     private void StartMove(InputAction.CallbackContext obj)
     {
+        _onStartMove?.Invoke();
         JoystickDirection = obj.ReadValue<Vector2>();
         MovementRoutine = StartCoroutine(MoveRoutine());
     }
@@ -89,13 +95,17 @@ public class PlayerMove : MonoBehaviour
     private void UpdateMove(InputAction.CallbackContext obj)
     {
         JoystickDirection = obj.ReadValue<Vector2>();
-        Debug.Log($"Update Move : {obj.ReadValue<Vector2>()}");
     }
     private void StopMove(InputAction.CallbackContext obj)
     {
+        _onStopMove?.Invoke();
         StopCoroutine(MovementRoutine);
         JoystickDirection = Vector2.zero;
-        Debug.Log($"Stop Move : {obj.ReadValue<Vector2>()}");
+    }
+
+    private void Attack(InputAction.CallbackContext obj)
+    {
+        _onAttack?.Invoke();
     }
 
     public void IncreaseMaxSpeed(float amount)

@@ -4,13 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-public class PlayerAttack : MonoBehaviour
+public class PlayerAttack : HitEntity
 {
     [SerializeField]
     private LayerMask _hitLayer;
-
-    [SerializeField]
-    private int _damageAmount;
 
     [Serializable]
     public struct HitBoxPoint
@@ -22,15 +19,11 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField]
     private List<HitBoxPoint> _pointsHitBox = new();
 
-    List<Collider> _collidersAlreadyTouched = new List<Collider>();
-
     private void Awake()
     {
         Assert.IsTrue(_damageAmount > 0);
         _collidersAlreadyTouched.Clear();
     }
-
-
 
     public void Damage()
     {
@@ -40,14 +33,9 @@ public class PlayerAttack : MonoBehaviour
             {
                 if (_collidersAlreadyTouched.Contains(collider)) return;
                 _collidersAlreadyTouched.Add(collider);
-                collider.GetComponent<EntityHealth>().TakeDamage(_damageAmount);
+                collider.GetComponent<EntityHealth>()?.TakeDamage(_damageAmount);
             }
         }
-    }
-
-    public void EmptyListColliders()
-    {
-        _collidersAlreadyTouched.Clear();
     }
 
     private void OnDrawGizmos()
