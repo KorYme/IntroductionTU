@@ -24,9 +24,9 @@ public class EntityHealth : MonoBehaviour
         get => CurrentHealth <= 0;
     }
 
-    public UnityEvent OnDamageTaken;
-    public UnityEvent OnHeal;
-    public UnityEvent OnDeath;
+    [SerializeField] UnityEvent _onDamageTaken;
+    [SerializeField] UnityEvent _onHeal;
+    [SerializeField] UnityEvent _onDeath;
 
     private void Awake()
     {
@@ -38,10 +38,10 @@ public class EntityHealth : MonoBehaviour
     {
         if (IsDead) return;
         CurrentHealth -= Math.Clamp(damageAmount, 0, CurrentHealth);
-        OnDamageTaken?.Invoke();
+        _onDamageTaken?.Invoke();
         if (IsDead)
         {
-            OnDeath?.Invoke();
+            _onDeath?.Invoke();
         }
     }
 
@@ -49,6 +49,6 @@ public class EntityHealth : MonoBehaviour
     {
         if (IsDead) return;
         CurrentHealth += Math.Clamp(healAmount, 0, _maxHealth - CurrentHealth);
-        OnHeal?.Invoke();
+        _onHeal?.Invoke();
     }
 }

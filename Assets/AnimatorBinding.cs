@@ -7,8 +7,8 @@ public class AnimatorBinding : MonoBehaviour
 {
     private Animator _animator;
 
-    public UnityEvent _onApplyDamage;
-    public UnityEvent _onStopDamage;
+    [SerializeField] UnityEvent _onApplyDamage;
+    [SerializeField] UnityEvent _onStopDamage;
 
     private void Awake()
     {
