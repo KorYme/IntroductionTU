@@ -21,6 +21,8 @@ public class PlayerMove : MonoBehaviour
     // Event pour les GD
     [SerializeField] UnityEvent _onEvent;
     [SerializeField] UnityEvent _onEventPost;
+    [SerializeField] UnityEvent _onStartMove;
+    [SerializeField] UnityEvent _onStopMove;
 
     public Vector2 JoystickDirection { get; private set; }
 
@@ -96,7 +98,7 @@ public class PlayerMove : MonoBehaviour
         Debug.Log($"Stop Move : {obj.ReadValue<Vector2>()}");
     }
 
-    public void IncreaseMaxSpeed(int amount)
+    public void IncreaseMaxSpeed(float amount)
     {
         _speed += amount;
     }
