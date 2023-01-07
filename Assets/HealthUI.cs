@@ -6,17 +6,37 @@ using UnityEngine.UI;
 
 public class HealthUI : MonoBehaviour
 {
-
+    [SerializeField] GameObject _target;
     [SerializeField] Slider _slider;
     [SerializeField] TextMeshProUGUI _text;
-    [SerializeField] EntityHealth _playerHealth;
+    
+    private EntityHealth _playerHealth;
 
     int CachedMaxHealth { get; set; }
 
-    void UpdateSlider(int newHealthValue)
+    private void Start()
     {
-        _slider.value = newHealthValue;
-        _text.text = $"{newHealthValue} / {CachedMaxHealth}";
+        _playerHealth = _target.GetComponent<EntityHealth>();
+        CachedMaxHealth = _playerHealth.CurrentHealth;
+        _slider.maxValue = CachedMaxHealth;
+        _slider.value = CachedMaxHealth;
+        _text.text = $"{CachedMaxHealth} / {CachedMaxHealth}";
     }
 
+    void Update()
+    {
+        if (_playerHealth.IsDead) {
+            _slider.value = 0;
+            _text.text = "0 / 0";
+        } else {
+            CachedMaxHealth = _playerHealth.MaxHealth;
+            UpdateSlider(_playerHealth.CurrentHealth);
+        }
+    }
+
+    void UpdateSlider(int newHealthValue)
+    {
+        _slider.value = (newHealthValue * 100) / CachedMaxHealth;
+        _text.text = $"{newHealthValue} / {CachedMaxHealth}";
+    }
 }

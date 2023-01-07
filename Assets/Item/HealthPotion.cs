@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class HealthPotion : Item
 {
-    // Start is called before the first frame update
-    void Start()
+    protected override void TriggerEffect()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (_entity != null) {
+            Debug.Log("TriggerEffect Health Potion");
+            _entity.GetComponent<EntityHealth>().Heal(1);
+            Destroy(gameObject);
+        }
     }
 }

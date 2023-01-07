@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Gold : Item
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private int value = 0;
 
-    // Update is called once per frame
-    void Update()
+    protected override void TriggerEffect()
     {
-        
+        if (_entity != null) {
+            value = Random.Range(1, 10);
+            Debug.Log("TriggerEffect Gold");
+            _entity.GetComponent<EntityGold>().IncreaseGold(value);
+            Destroy(gameObject);
+        }
     }
 }

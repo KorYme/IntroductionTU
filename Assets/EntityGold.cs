@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class EntityGold : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    private int _gold;
+
+    public int Gold {
+        get { return _gold; }
+        private set { _gold = value; }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void IncreaseGold(int value)
     {
-        
+        Gold += value;
     }
 }

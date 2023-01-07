@@ -11,11 +11,10 @@ public class EntityHealth : MonoBehaviour
     [SerializeField]
     private int _maxHealth;
 
-    [field:SerializeField]
     public int MaxHealth
     {
-        get { return _maxHealth; }
-        set { _maxHealth = value; }
+        get => _maxHealth;
+        private set => _maxHealth = value;
     }
 
     private int _currentHealth;
@@ -57,5 +56,11 @@ public class EntityHealth : MonoBehaviour
         if (IsDead) return;
         CurrentHealth += Math.Clamp(healAmount, 0, _maxHealth - CurrentHealth);
         _onHeal?.Invoke();
+    }
+
+    public void IncreaseMaxHealth(int amount)
+    {
+        _maxHealth += amount;
+        _currentHealth += amount;
     }
 }
