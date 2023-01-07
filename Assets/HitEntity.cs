@@ -9,26 +9,31 @@ public class HitEntity : MonoBehaviour
     [SerializeField]
     protected int _damageAmount;
 
+    private bool _canAttack;
+
     protected List<Collider> _collidersAlreadyTouched = new List<Collider>();
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if (_collidersAlreadyTouched.Contains(other)) return;
-        _collidersAlreadyTouched.Add(other);
-        Transform current = other.transform;
-        while (current.parent != null)
+        if (!_collidersAlreadyTouched.Contains(other) && _canAttack)
         {
-            if (current.parent.GetComponent<EntityHealth>())
-            {
-                current.parent.GetComponent<EntityHealth>().TakeDamage(_damageAmount);
-                return;
-            }
-            current = current.transform.parent;
+            _collidersAlreadyTouched.Add(other);
+            other.GetComponent<EntityHealth>()?.TakeDamage(_damageAmount);
         }
     }
 
     public void EmptyListColliders()
     {
         _collidersAlreadyTouched.Clear();
+    }
+
+    public void CanAttack()
+    {
+        _canAttack = true;
+    }
+
+    public void CantAttack()
+    {
+        _canAttack = false;
     }
 }

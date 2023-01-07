@@ -11,6 +11,13 @@ public class EntityHealth : MonoBehaviour
     [SerializeField]
     private int _maxHealth;
 
+    [field:SerializeField]
+    public int MaxHealth
+    {
+        get { return _maxHealth; }
+        set { _maxHealth = value; }
+    }
+
     private int _currentHealth;
 
     public int CurrentHealth 
