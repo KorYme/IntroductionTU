@@ -9,13 +9,11 @@ public class HitEntity : MonoBehaviour
     [SerializeField]
     protected int _damageAmount;
 
-    private bool _canAttack;
-
     protected List<Collider> _collidersAlreadyTouched = new List<Collider>();
 
     private void OnTriggerStay(Collider other)
     {
-        if (!_collidersAlreadyTouched.Contains(other) && _canAttack)
+        if (!_collidersAlreadyTouched.Contains(other))
         {
             _collidersAlreadyTouched.Add(other);
             other.GetComponent<EntityHealth>()?.TakeDamage(_damageAmount);
@@ -25,15 +23,5 @@ public class HitEntity : MonoBehaviour
     public void EmptyListColliders()
     {
         _collidersAlreadyTouched.Clear();
-    }
-
-    public void CanAttack()
-    {
-        _canAttack = true;
-    }
-
-    public void CantAttack()
-    {
-        _canAttack = false;
     }
 }
